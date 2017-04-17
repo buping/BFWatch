@@ -1,0 +1,8 @@
+{
+  "mqttserver":"mqtt://47.90.45.27",
+  "mqttoptions": {
+    "username": "beifen",
+    "password": "beifen111",
+    "reconnectPeriod": 5000
+  }
+}

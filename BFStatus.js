@@ -32,3 +32,4 @@ function EmitMsg(projectName,msgType,msg){
 }
 
 module.exports.StartAll = StartAll;
+module.exports.EmitMsg = EmitMsg;

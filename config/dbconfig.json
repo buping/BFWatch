@@ -3,7 +3,7 @@
     "username": "bfsort",
     "password": "bfsorting",
     "database": "bfsort",
-    "host": "localhost",
+    "host": "mqtt.bfsort.com",
     "dialect": "mysql",
 	"logging": false
   },

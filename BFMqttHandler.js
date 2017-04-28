@@ -4,6 +4,7 @@
 var mqtt = require('mqtt');
 var bfConfig = require ('./config/bfconfig.json');
 
+var bfStatus = require('./BFStatus.js');
 
 var client = mqtt.connect(bfConfig.mqttserver,bfConfig.mqttoptions);
 
@@ -52,7 +53,8 @@ var handleHeartBeat = function (messObj){
         myNode.lastReportTime = Date.now();
         var allstatus = [];
         allstatus.push(myNode);
-        io.emit('update',allstatus);
+        //io.emit('update',allstatus);
+        //bfStatus.EmitMsg(messObj.project,'update',allstatus);
         myNode.save().then(function(){
           //console.log('update db successful');
         }).catch(function(err){
@@ -62,24 +64,6 @@ var handleHeartBeat = function (messObj){
     });
 };
 
-var CheckDeadNode=function(){
-  var now = Date.now();
-  bfstatus.findAll({where:{projectName:project,online:true}}).then(function(allret){
-      for (let entry of allret){
-        var elapsed = now - entry.lastReportTime;
-        //console.log("elapsed:"+elapsed);
-        if (elapsed > 30000){
-          //console.log(entry.nodeName+" is offline");
-          entry.online = false;
-          entry.lastOfflineTime = entry.lastReportTime;
-          entry.save();
-        }
-      }
-      io.emit('update',allret);
-    }
-  );
-};
-setInterval(CheckDeadNode,3000);
 
 
 function saveInvalidScan(project,msg){
@@ -102,7 +86,7 @@ var handleScan=function (scanMsg){
   var project = scanMsg.project;
   var scanType = scanMsg.scanType;
   var msg = scanMsg.msg;
-  io.emit('scan',scanMsg);
+  bfStatus.EmitMsg(project,'scan',scanMsg);
 
   var now = new Date();
   var hourTime = new Date(now.getFullYear(),now.getMonth(),now.getDate(),now.getHours());
@@ -144,7 +128,7 @@ var handleScan=function (scanMsg){
 
         var allres = [];
         allres.push(stat);
-        io.emit('scanstat',allres);
+        bfStatus.EmitMsg(project,'scanstat',allres);
       }
     });
 

@@ -1,5 +1,5 @@
 {
-  "mqttserver":"mqtt://47.90.45.27",
+  "mqttserver":"mqtt://mqtt.bfsort.com",
   "mqttoptions": {
     "username": "beifen",
     "password": "beifen111",

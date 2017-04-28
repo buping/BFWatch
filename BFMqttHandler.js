@@ -11,7 +11,7 @@ var bfStatus = require('./BFStatus.js');
 var models = require('./models');
 
 var bfstatusdb = models.nodeStatus;
-var scanstat = models.scanstat;
+var scanstatdb = models.scanstat;
 var invalidscandb = models.invalidscan
 
 var client = mqtt.connect(bfConfig.mqttserver,bfConfig.mqttoptions);

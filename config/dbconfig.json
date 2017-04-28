@@ -4,15 +4,15 @@
     "password": "bfsorting",
     "database": "bfsort",
     "host": "mqtt.bfsort.com",
-    "dialect": "mysql",
-	"logging": false
+    "dialect": "mysql"
   },
   "test": {
     "username": "bfsort",
     "password": "bfsorting",
     "database": "bfsort",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "production": {
     "username": "bfsort",

@@ -3,6 +3,7 @@
  */
 const socketio = require('socket.io');
 var util = require('util');
+var Emitter = require("events").EventEmitter;
 
 var models = require('./models');
 
@@ -96,9 +97,9 @@ BFViewInstance.prototype.CheckDeadNode=function(){
         }
       }
       //io.emit('update',allret);
-      this.emit('update',allstatus);
-    }
-  ).bind(this);
+      this.emit('update',allret);
+    }.bind(this)
+  );
 };
 
 

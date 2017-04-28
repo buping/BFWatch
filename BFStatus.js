@@ -14,10 +14,12 @@ var serverMap = new Map();
 function StartAll(){
   serverMap.clear();
 	bfproject.findAll().then(function (allRet){
-			for (let entry of allret) {
-        var oneServer = new BfInstance(entry);
-        oneServer.Init();
-        serverMap.set(entry.projectName,oneServer);
+			for (let entry of allRet) {
+			  console.log(entry.projectCnName);
+        try {
+          var oneServer = new BfInstance({projectName: entry.projectName, wsPort: entry.wsPort});
+          serverMap.set(entry.projectName, oneServer);
+        }catch(err){}
 			}
 		});
 }
@@ -28,3 +30,5 @@ function EmitMsg(projectName,msgType,msg){
     server.emit(msgType,msg);
   }
 }
+
+module.exports.StartAll = StartAll;

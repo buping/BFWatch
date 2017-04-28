@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var bfStatus = require('./BFStatus.js');
+
 var app = express();
 
 // view engine setup
@@ -42,6 +44,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var models = require('./models');
+models.sequelize.sync().then(function (){
+  console.log("models synced");
+  bfStatus.StartAll();
+});
+
 
 var mqttHandler = require('./BFMqttHandler');
 

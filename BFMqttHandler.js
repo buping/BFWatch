@@ -6,6 +6,8 @@ var bfConfig = require ('./config/bfconfig.json');
 
 var bfStatus = require('./BFStatus.js');
 
+//bfStatus.StartAll();
+
 var client = mqtt.connect(bfConfig.mqttserver,bfConfig.mqttoptions);
 
 client.on('error',function(err){

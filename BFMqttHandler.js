@@ -8,6 +8,12 @@ var bfStatus = require('./BFStatus.js');
 
 //bfStatus.StartAll();
 
+var models = require('./models');
+
+var bfstatusdb = models.nodeStatus;
+var scanstat = models.scanstat;
+var invalidscandb = models.invalidscan
+
 var client = mqtt.connect(bfConfig.mqttserver,bfConfig.mqttoptions);
 
 client.on('error',function(err){
@@ -36,7 +42,7 @@ client.on('message', function (topic, message) {
 });
 
 var handleHeartBeat = function (messObj){
-  bfstatus.findOne({where: {projectName:messObj.project,nodeName:messObj.name}}).then(
+  bfstatusdb.findOne({where: {projectName:messObj.project,nodeName:messObj.name}}).then(
     function(myNode){
       if (myNode == undefined || myNode == null){
         myNode = {};
@@ -45,7 +51,7 @@ var handleHeartBeat = function (messObj){
         myNode.online = true;
         myNode.lastReportTime = Date.now();
         myNode.lastOnlineTime = Date.now();
-        bfstatus.upsert(myNode);
+        bfstatusdb.upsert(myNode);
       }else{
         if (myNode.online == false){
           myNode.lastOnlineTime = Date.now();
@@ -77,7 +83,7 @@ function saveInvalidScan(project,msg){
     invalidEntry.scanTime = Date.now();
     invalidEntry.scanResult = JSON.stringify(msgObj.scan);
     invalidEntry.packetID = msgObj.id;
-    invalidscan.upsert(invalidEntry).catch(function(err){
+    invalidscandb.upsert(invalidEntry).catch(function(err){
       console.log('insert invalid scan error:'+err);
     });
   }
@@ -93,7 +99,7 @@ var handleScan=function (scanMsg){
   var now = new Date();
   var hourTime = new Date(now.getFullYear(),now.getMonth(),now.getDate(),now.getHours());
 
-  scanstat.findOne({where:{projectName:project,scanHour:hourTime}}).then(
+  scanstatdb.findOne({where:{projectName:project,scanHour:hourTime}}).then(
     function(stat){
       if (stat == undefined || stat == null){
         stat = {};
@@ -112,7 +118,7 @@ var handleScan=function (scanMsg){
           saveInvalidScan(project,msg);
         }
         stat.allScan++;
-        scanstat.upsert(stat).catch(function(err){
+        scanstatdb.upsert(stat).catch(function(err){
           console.log('database error');
         });
       }else{

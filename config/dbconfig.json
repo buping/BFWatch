@@ -4,7 +4,8 @@
     "password": "bfsorting",
     "database": "bfsort",
     "host": "mqtt.bfsort.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "bfsort",

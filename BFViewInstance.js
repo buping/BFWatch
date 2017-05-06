@@ -44,7 +44,7 @@ BFViewInstance.prototype.StartServer = function(){
     socket.on('scanbag', function (data) {
       });
     });
-  }.bind(this));
+  }.bind(this);
 
   this.io.listen(this.wsPort);
   console.log('start websocket server for project '+this.projectName+' on port:'+this.wsPort);

@@ -154,7 +154,7 @@ var handleScan=function (scanMsg){
 
 var handleError=function (errMsg){
   var project = errMsg.project;
-  var msg = scanMsg.msg;
+  var msg = errMsg.msg;
   bfStatus.EmitMsg(project,'error',errMsg);
 
   //todo save to database

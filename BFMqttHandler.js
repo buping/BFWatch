@@ -37,6 +37,12 @@ client.on('message', function (topic, message) {
   }else if (topic == 'scan'){
     var scanMsg = JSON.parse(message);
     handleScan(scanMsg);
+  }else if (topic == 'error'){
+    var errMsg = JSON.parse(message);
+    handleError(errMsg);
+  }else if (topic == 'speed'){
+    var speedMsg = JSON.parse(message);
+    handleSpeed(speedMsg);
   }
   //client.end()
 });
@@ -142,3 +148,17 @@ var handleScan=function (scanMsg){
 
 };
 
+var handleError=function (errMsg){
+  var project = errMsg.project;
+  var msg = scanMsg.msg;
+  bfStatus.EmitMsg(project,'error',errMsg);
+
+  //todo save to database
+};
+
+var handleSpeed=function (speedMsg){
+  var project = speedMsg.project;
+  var speed = speedMsg.speed;
+  bfStatus.EmitMsg(project,'speed',speedMsg);
+
+};

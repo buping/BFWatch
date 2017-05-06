@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5576767d-4677-4c0a-90d4-3eac35d3942f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BFViewInstance.js" afterPath="$PROJECT_DIR$/BFViewInstance.js" />
     </list>
     <list id="c23b19be-dae8-41f8-81af-8391ec68dec2" name="Failed commit: Default" comment="Rejected commit: Default" />
     <ignored path="BFWatch.iws" />
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BFViewInstance.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BFViewInstance.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BFViewInstance.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="-785">
+              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
               <folding>
                 <element signature="e#0#50#0" expanded="false" />
               </folding>
@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="www" pinned="false" current-in-tab="true">
+      <file leaf-file-name="www" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/www">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="464">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -74,8 +74,8 @@
       <file leaf-file-name="BFMqttHandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BFMqttHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
+            <state relative-caret-position="639">
+              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
               <folding>
                 <element signature="e#0#50#0" expanded="false" />
               </folding>
@@ -167,8 +167,8 @@
         <option value="$PROJECT_DIR$/config/dbconfig.json" />
         <option value="$PROJECT_DIR$/BFStatus.js" />
         <option value="$PROJECT_DIR$/BFMqttHandler.js" />
-        <option value="$PROJECT_DIR$/BFViewInstance.js" />
         <option value="$PROJECT_DIR$/bin/www" />
+        <option value="$PROJECT_DIR$/BFViewInstance.js" />
       </list>
     </option>
   </component>
@@ -396,7 +396,7 @@
       <workItem from="1492413497154" duration="1180000" />
       <workItem from="1492414843354" duration="4735000" />
       <workItem from="1493384334457" duration="8575000" />
-      <workItem from="1494037510289" duration="1320000" />
+      <workItem from="1494037510289" duration="1645000" />
     </task>
     <task id="LOCAL-00001" summary="Rejected commit: Default">
       <created>1492413622319</created>
@@ -503,11 +503,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494038729278</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Rejected commit: Default">
+      <created>1494038834578</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1494038834578</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16136000" />
+    <option name="totallyTimeSpent" value="16461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -827,10 +834,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BFMqttHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
+        <state relative-caret-position="639">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
           <folding>
             <element signature="e#0#50#0" expanded="false" />
           </folding>
@@ -839,19 +854,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BFViewInstance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        <state relative-caret-position="-785">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding>
             <element signature="e#0#50#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>

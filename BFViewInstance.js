@@ -7,10 +7,6 @@ var Emitter = require("events").EventEmitter;
 
 var models = require('./models');
 
-var bfstatus = models.nodeStatus;
-var scanstat = models.scanstat;
-var invalidscan = models.invalidscan;
-
 
 var defaults = {
   //reportVersionTimeout: 5000,
@@ -45,62 +41,15 @@ BFViewInstance.prototype.StartServer = function(){
     var projectName = this.projectName;
     console.log('project:'+projectName +' websocket on connection');
 
-    bfstatus.findAll({where: {projectName: projectName}}).then(function (allret) {
-        socket.emit('update', allret);
-      }
-    );
-
-    scanstat.findAll({
-      where: {
-        projectName: projectName
-      },
-      order: 'scanHour DESC',
-      limit: 24
-    }).then(function (allret) {
-        socket.emit('scanstat', allret);
-      }
-    );
-
-    socket.on('searchinvalid', function (data) {
-      var barcode = '%' + data + '%';
-      invalidscan.findOne({
-        where: {
-          scanResult: {$like: barcode}
-        },
-        order: 'scanTime DESC'
-      }).then(function (entry) {
-        console.log(entry);
-        if (entry != null) {
-          socket.emit('foundinvalid', entry);
-        }
+    socket.on('scanbag', function (data) {
       });
     });
   }.bind(this));
 
   this.io.listen(this.wsPort);
   console.log('start websocket server for project '+this.projectName+' on port:'+this.wsPort);
-  setInterval(this.CheckDeadNode.bind(this),5000);
 };
 
-
-BFViewInstance.prototype.CheckDeadNode=function(){
-  var now = Date.now();
-  bfstatus.findAll({where:{projectName:this.projectName,online:true}}).then(function(allret){
-      for (let entry of allret){
-        var elapsed = now - entry.lastReportTime;
-        //console.log("elapsed:"+elapsed);
-        if (elapsed > 30000){
-          //console.log(entry.nodeName+" is offline");
-          entry.online = false;
-          entry.lastOfflineTime = entry.lastReportTime;
-          entry.save();
-        }
-      }
-      //io.emit('update',allret);
-      this.emit('update',allret);
-    }.bind(this)
-  );
-};
 
 
 BFViewInstance.prototype.emit = function(msgType,msg){

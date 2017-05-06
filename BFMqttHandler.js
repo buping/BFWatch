@@ -26,6 +26,9 @@ client.on('connect', function () {
 
   client.subscribe('heartbeat');
   client.subscribe('scan');
+  client.subscribe('error');
+  client.subscribe('speed');
+
 });
 
 client.on('message', function (topic, message) {
@@ -38,6 +41,7 @@ client.on('message', function (topic, message) {
     var scanMsg = JSON.parse(message);
     handleScan(scanMsg);
   }else if (topic == 'error'){
+    console.log(message);
     var errMsg = JSON.parse(message);
     handleError(errMsg);
   }else if (topic == 'speed'){

@@ -6,6 +6,8 @@ var util = require('util');
 var Emitter = require("events").EventEmitter;
 
 var models = require('./models');
+var bfstatusdb = models.nodeStatus;
+var scanstatdb = models.scanstat;
 
 
 var defaults = {
@@ -40,6 +42,25 @@ BFViewInstance.prototype.StartServer = function(){
   this.io.on('connection', function (socket) {
     var projectName = this.projectName;
     console.log('project:'+projectName +' websocket on connection');
+
+    bfstatusdb.findAll({where:{projectName:project}}).then(function(allret){
+        socket.emit('update',allret);
+      }
+    );
+
+    var now = Date.now()- 1000*60*60*24;
+    scanstatdb.findAll({where:
+    {
+      projectName:project
+      //   ,
+      //scanHour:{gt:now}
+    },
+      order:'scanHour DESC',
+      limit:24
+    }).then(function(allret){
+        socket.emit('scanstat',allret);
+      }
+    );
 
   }.bind(this));
 

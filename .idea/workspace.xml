@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5576767d-4677-4c0a-90d4-3eac35d3942f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BFViewInstance.js" afterPath="$PROJECT_DIR$/BFViewInstance.js" />
     </list>
     <list id="c23b19be-dae8-41f8-81af-8391ec68dec2" name="Failed commit: Default" comment="Rejected commit: Default" />
     <ignored path="BFWatch.iws" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="BFViewInstance.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BFViewInstance.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+            <state relative-caret-position="433">
+              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
                 <element signature="e#0#50#0" expanded="false" />
               </folding>
@@ -396,7 +395,7 @@
       <workItem from="1492413497154" duration="1180000" />
       <workItem from="1492414843354" duration="4735000" />
       <workItem from="1493384334457" duration="8575000" />
-      <workItem from="1494037510289" duration="2130000" />
+      <workItem from="1494037510289" duration="2187000" />
     </task>
     <task id="LOCAL-00001" summary="Rejected commit: Default">
       <created>1492413622319</created>
@@ -524,11 +523,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494039592253</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Rejected commit: Default">
+      <created>1494039645283</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1494039645283</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16946000" />
+    <option name="totallyTimeSpent" value="17003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -869,8 +875,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BFViewInstance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        <state relative-caret-position="433">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding>
             <element signature="e#0#50#0" expanded="false" />
           </folding>

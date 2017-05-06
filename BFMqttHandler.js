@@ -34,20 +34,21 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
   // message is Buffer
   //console.log(message.toString());
-  if (topic == 'heartbeat'){
+  try{
     var messObj = JSON.parse(message);
-    handleHeartBeat(messObj);
-  }else if (topic == 'scan'){
-    var scanMsg = JSON.parse(message);
-    handleScan(scanMsg);
-  }else if (topic == 'error'){
-    console.log(message);
-    var errMsg = JSON.parse(message);
-    handleError(errMsg);
-  }else if (topic == 'speed'){
-    var speedMsg = JSON.parse(message);
-    handleSpeed(speedMsg);
-  }
+    if (messObj == null || messObj == undefined)
+      return;
+    if (topic == 'heartbeat'){
+        handleHeartBeat(messObj);
+    }else if (topic == 'scan'){
+      handleScan(messObj);
+    }else if (topic == 'error'){
+      handleError(messObj);
+    }else if (topic == 'speed'){
+      handleSpeed(messObj);
+    }
+  }catch(error){}
+
   //client.end()
 });
 

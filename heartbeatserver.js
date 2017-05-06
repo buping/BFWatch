@@ -8,7 +8,7 @@ bfstatus.sync().then(function (){
 });
 
 
-var client  = mqtt.connect('mqtt://47.90.45.27' ,{
+var client  = mqtt.connect('mqtt://mqtt.bfsort.com' ,{
 	username:'beifen',
 	password:'beifen111',
 	reconnectPeriod: 5000
@@ -28,7 +28,7 @@ client.on('connect', function () {
 
 client.on('message', function (topic, message) {
   // message is Buffer 
-  console.log(message.toString());
+  //console.log(message.toString());
   if (topic == 'heartbeat'){
   	handleHeartBeat(message);
   }

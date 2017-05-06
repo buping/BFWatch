@@ -43,7 +43,7 @@ BFViewInstance.prototype.StartServer = function(){
     var projectName = this.projectName;
     console.log('project:'+projectName +' websocket on connection');
 
-    bfstatusdb.findAll({where:{projectName:project}}).then(function(allret){
+    bfstatusdb.findAll({where:{projectName:projectName}}).then(function(allret){
         socket.emit('update',allret);
       }
     );
@@ -51,7 +51,7 @@ BFViewInstance.prototype.StartServer = function(){
     var now = Date.now()- 1000*60*60*24;
     scanstatdb.findAll({where:
     {
-      projectName:project
+      projectName:projectName
       //   ,
       //scanHour:{gt:now}
     },

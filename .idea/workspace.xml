@@ -52,8 +52,8 @@
       <file leaf-file-name="BFViewInstance.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BFViewInstance.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            <state relative-caret-position="462">
+              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
               <folding>
                 <element signature="e#0#50#0" expanded="false" />
               </folding>
@@ -396,7 +396,7 @@
       <workItem from="1492413497154" duration="1180000" />
       <workItem from="1492414843354" duration="4735000" />
       <workItem from="1493384334457" duration="8575000" />
-      <workItem from="1494037510289" duration="2076000" />
+      <workItem from="1494037510289" duration="2130000" />
     </task>
     <task id="LOCAL-00001" summary="Rejected commit: Default">
       <created>1492413622319</created>
@@ -517,11 +517,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494039160645</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Rejected commit: Default">
+      <created>1494039592253</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1494039592253</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16892000" />
+    <option name="totallyTimeSpent" value="16946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -751,6 +758,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -861,8 +869,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BFViewInstance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+        <state relative-caret-position="462">
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding>
             <element signature="e#0#50#0" expanded="false" />
           </folding>

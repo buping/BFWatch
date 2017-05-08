@@ -65,6 +65,7 @@ BFViewInstance.prototype.StartServer = function(){
   }.bind(this));
 
   this.io.listen(this.wsPort);
+  setInterval(this.CheckDeadNode.bind(this),5000);
   console.log('start websocket server for project '+this.projectName+' on port:'+this.wsPort);
 };
 
@@ -76,6 +77,26 @@ BFViewInstance.prototype.emit = function(msgType,msg){
 
   this.io.emit(msgType,msg);
 };
+
+
+BFViewInstance.prototype.CheckDeadNode=function(){
+  var now = Date.now();
+  bfstatusdb.findAll({where:{projectName:this.projectName,online:true}}).then(function(allret){
+      for (let entry of allret){
+        var elapsed = now - entry.lastReportTime;
+        //console.log("elapsed:"+elapsed);
+        if (elapsed > 20000){
+          //console.log(entry.nodeName+" is offline");
+          entry.online = false;
+          entry.lastOfflineTime = entry.lastReportTime;
+          entry.save();
+        }
+      }
+      this.emit('update',allret);
+    }.bind(this)
+  );
+};
+
 
 module.exports = BFViewInstance;
 

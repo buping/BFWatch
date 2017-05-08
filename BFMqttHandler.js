@@ -165,5 +165,6 @@ var handleSpeed=function (speedMsg){
   var project = speedMsg.project;
   var speed = speedMsg.speed;
   bfStatus.EmitMsg(project,'speed',speedMsg);
-
 };
+
+

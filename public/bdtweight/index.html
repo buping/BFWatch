@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>八达通自动称重集成系统运行监测</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+<style>
+			
+			.title{
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+	
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			.oa-contact-content {
+				width: 100%;
+			}
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			.oa-contact-name, oa-contact-position {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()			
+		</script>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">八达通自动称重集成系统运行监测</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">运行状态</span>
+			</a>
+			<a class="mui-tab-item mui-active" href="#statistics">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">扫描统计</span>
+			</a>			
+			<a class="mui-tab-item" href="#realtime">
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">实时扫描</span>
+			</a>
+			<a class="mui-tab-item" href="#errreport">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">错误报告</span>
+			</a>		
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+				<div class="title">各节点运行状态</div>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重1</a>
+						<span class="mui-badge mui-badge-inverted" id='weight1'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight1extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重2</a>
+						<span class="mui-badge mui-badge-inverted" id='weight2'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight2extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重3</a>
+						<span class="mui-badge mui-badge-inverted" id='weight3'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight3extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重4</a>
+						<span class="mui-badge mui-badge-inverted" id='weight4'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight4extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重5</a>
+						<span class="mui-badge mui-badge-inverted" id='weight5'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight5extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重6</a>
+						<span class="mui-badge mui-badge-inverted" id='weight6'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight6extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重7</a>
+						<span class="mui-badge mui-badge-inverted" id='weight7'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight7extra'>                
+            </div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a href="" class="mui-navigate">静态称重8</a>
+						<span class="mui-badge mui-badge-inverted" id='weight8'>离线</span>
+						<div class="mui-collapse-content mui-badge-inverted" id='weight8extra'>                
+            </div>
+					</li>
+
+
+				</ul>
+			</div>
+			<script type="text/javascript">
+			var myTime = 1478588952065;
+			
+			function getTimespanStr(start,end){
+				var elapsed = end - start;
+				var days=Math.floor(elapsed/(24*3600*1000));
+				var leave1=elapsed%(24*3600*1000);
+				var hours=Math.floor(leave1/(3600*1000));
+				var leave2=leave1%(3600*1000);
+				var minutes=Math.floor(leave2/(60*1000));
+				var leave3=leave2%(60*1000);
+				var seconds=Math.round(leave3/1000);				
+				var timeStr = '';
+				if (days>0) 
+					timeStr = timeStr + days+'天';
+				if (hours>0)
+					timeStr = timeStr + hours+'小时';				
+				if (minutes>0)
+					timeStr = timeStr + minutes+'分钟';
+				if (seconds>0)
+					timeStr = timeStr + seconds+'秒';
+				
+				return timeStr;
+			}
+			function UpdateTime(){
+				var now = Date.now();		
+				/*
+				var elapsed = now - myTime;
+				var days=Math.floor(elapsed/(24*3600*1000));
+				var leave1=elapsed%(24*3600*1000);
+				var hours=Math.floor(leave1/(3600*1000));
+				var leave2=leave1%(3600*1000);
+				var minutes=Math.floor(leave2/(60*1000));
+				var leave3=leave2%(60*1000);
+				var seconds=Math.round(leave3/1000);
+				var timeStr = days+'天'+hours+'小时'+minutes+'分钟'+seconds+'秒';
+				*/
+				/*
+				var server1 = document.getElementById('server1');
+				if (server1.online){
+					server1.setAttribute("class","mui-badge mui-badge-success");
+					server1.innerText = '在线：'+ getTimespanStr(server1.lastOnlineTime,now);
+				}
+				else{				
+					server1.setAttribute("class","mui-badge mui-badge-inverted");
+					server1.innerText = '离线：'+ getTimespanStr(server1.lastOfflineTime,now);
+				}*/
+				UpdateLi('weight1');
+				UpdateLi('weight2');
+				UpdateLi('weight3');
+				UpdateLi('weight4');
+				UpdateLi('weight5');
+				UpdateLi('weight6');
+				UpdateLi('weight7');
+				UpdateLi('weight8');
+								
+			}	
+			function UpdateLi(elemId){
+				var now = Date.now();
+				var liItem = document.getElementById(elemId);
+				var liExtra = document.getElementById(elemId+"extra");
+				if (liItem == undefined)
+					return;
+				if (liItem.lastOnlineTime == undefined || liItem.lastOfflineTime == undefined)
+					return;
+				
+
+				if (liItem.online){
+					liItem.setAttribute("class","mui-badge mui-badge-success");
+					liItem.innerText = '在线：'+ getTimespanStr(liItem.lastOnlineTime,now);
+					liExtra.innerHTML = '<p>上次离线：'+liItem.lastOfflineTime.toLocaleString()+' 至 '+liItem.lastOnlineTime.toLocaleString()+'</p>';
+				}
+				else{				
+					liItem.setAttribute("class","mui-badge mui-badge-inverted");
+					liItem.innerText = '离线：'+ getTimespanStr(liItem.lastOfflineTime,now);
+					liExtra.innerHTML = '<p>上次在线：'+liItem.lastOnlineTime.toLocaleString()+' 至 '+liItem.lastReportTime.toLocaleString()+'</p>';
+				}				
+			}
+			setInterval(UpdateTime,1000);
+			</script>
+			
+			<script src="http://bdtweight.bfsort.com:27409/socket.io/socket.io.js"></script>
+			<script>
+  				var socket = io('http://bdtweight.bfsort.com:27409');
+  				socket.on('update', function(msg){
+  					for (let entry of msg) {
+  						if (entry.nodeName !== undefined && document.getElementById(entry.nodeName) !== null){
+  							document.getElementById(entry.nodeName).online = entry.online;
+  							document.getElementById(entry.nodeName).lastOnlineTime = new Date(entry.lastOnlineTime);
+  							document.getElementById(entry.nodeName).lastOfflineTime = new Date(entry.lastOfflineTime);
+  							document.getElementById(entry.nodeName).lastReportTime = new Date(entry.lastReportTime);
+  						}
+  					}
+  				});
+  				
+  				socket.on('scan', function(msg){
+  					var allscan = document.getElementById('allscan');
+  					var li = document.createElement("li");
+  					if (msg.scanType == 0){
+  						li.className = "mui-table-view-cell mui-badge-success";	
+  					}else if (msg.scanType == 2){
+  						li.className = "mui-table-view-cell mui-badge-warning";  						
+  					}else{
+  						li.className = "mui-table-view-cell mui-badge-inverted";
+						}
+  					
+  					li.innerHTML = msg.msg;
+  					allscan.insertBefore(li,allscan.childNodes[0]);
+  					if (allscan.childNodes.length>=11){
+  						allscan.removeChild(allscan.childNodes[allscan.childNodes.length-1]);
+  					}
+  				});
+
+				socket.on('scanstat', function(msg){					
+  					var scanstat = document.getElementById('scanstat');
+  					for (let entry of msg) {
+  						var hour=entry.scanHour;
+  						var liElem = document.getElementById(hour);
+  						if (liElem == undefined || liElem == null){
+  							liElem = document.createElement('li');  	
+							liElem.setAttribute("id",hour);
+  							liElem.className = "mui-table-view-cell";
+  							//scanstat.insertBefore(liElem,scanstat.childNodes[0]);
+  							scanstat.appendChild(liElem);
+  						}
+  						
+  						var hourTime = new Date(entry.scanHour);
+  						
+  						liElem.innerHTML = hourTime.getDate()+"日"+hourTime.getHours() + "时,结果: 总计:"+entry.allScan+",合法："+entry.validScan+",非法："+entry.invalidScan+
+  						 ";
+  					}
+  				});
+  				socket.on('error', function(msg){
+  					
+  					var allerror = document.getElementById('allerror');
+  					var li = document.createElement("li");
+  					li.className = "mui-table-view-cell mui-badge-warning";  						
+  					
+  					li.innerHTML = msg.node +":" + msg.msg + ",错误等级:"+msg.level;
+  					allerror.insertBefore(li,allerror.childNodes[0]);
+  					if (allerror.childNodes.length>=20){
+  						allerror.removeChild(allerror.childNodes[allerror.childNodes.length-1]);
+  					}
+  				});
+			</script>
+			
+			<div id="statistics" class="mui-control-content">
+				<div class="title">扫描结果统计</div>
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" id='scanstat'>
+				</ul>				
+			</div>
+			<div id="realtime" class="mui-control-content">
+				<div class="title">实时扫描结果</div>
+				<ul class="mui-table-view mui-table-view-chevron" id='allscan'>					
+				</ul>
+			</div>
+			<div id="errreport" class="mui-control-content">
+				<div class="title">实时错误报告</div>
+				<ul class="mui-table-view mui-table-view-chevron" id='allerror'>					
+				</ul>
+			</div>
+
+		</div>
+	</body>
+
+</html>
